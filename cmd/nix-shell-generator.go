@@ -53,12 +53,9 @@ func main() {
 
 	var addNixShellName stringFlag
 	flag.Var(&addNixShellName, "add", "Add ./shell.nix to storage with a custom name.")
-
 	var nixShellPath = flag.String("path", "shell.nix", "[Optional] Path of the nix.shell file to add to storage.")
 
-	var getNixShellName stringFlag
-	flag.Var(&getNixShellName, "get", "Copy the shell.nix from storage by name in the current working dir.")
-
+	getFile := flag.Bool("get", false, "Find your shell.nix file and copy it to your current working directory.")
 	overwrite := flag.Bool("force", false, "Force to overwrite existing files.")
 	listNixShells := flag.Bool("list", false, "List all available nix.shell files in storage.")
 
@@ -76,15 +73,14 @@ func main() {
 		return
 	}
 
-	if getNixShellName.set {
+	if *getFile {
 		wd, err := os.Getwd()
 		if err != nil {
 			throwAndExit(err)
 		}
 
-		source := filepath.Join(getStoragePath(), getNixShellName.value+".nix")
 		destination := filepath.Join(wd, "shell.nix")
-		err = internal.GetNixShellFile(source, destination, *overwrite)
+		err = internal.GetNixShellFile(getStoragePath(), destination, *overwrite)
 
 		if err != nil {
 			throwAndExit(err)
