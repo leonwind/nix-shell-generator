@@ -32,6 +32,7 @@ func fuzzySearch(path string) (string, error) {
 			if i == -1 {
 				return ""
 			}
+
 			content, err := ioutil.ReadFile(filepath.Join(path, names[i]))
 			if err != nil {
 				panic(err)

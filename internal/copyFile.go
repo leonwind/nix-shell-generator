@@ -26,7 +26,7 @@ func CopyFile(source string, destination string, overwrite bool) error {
 	}
 
 	if FileExists(destination) && !overwrite {
-		return FileExistsError{fmt.Sprintf("File '%s' already exists, use '-f' if you want to overwrite it.", destination)}
+		return FileExistsError{fmt.Sprintf("File '%s' already exists, use '--force' if you want to overwrite it.", destination)}
 	}
 
 	out, err := os.Create(destination)
