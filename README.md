@@ -27,7 +27,7 @@ The template gets renamed and copied to `./shell.nix`.
 Install by running
 
 ```shell
-go install github.com/leonwind/nix-shell-generator/cmd@latest
+go install github.com/leonwind/nix-shell-generator/cmd/nix-shell-generator@06d5c91
 ```
 
 Your `shell.nix` templates will be stored in `~/.config/nix-shell-generator/`.
