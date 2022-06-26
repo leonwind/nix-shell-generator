@@ -19,6 +19,9 @@ You can also add an `--path path/to/shell.nix` argument if your `shell.nix` is n
 Run `nix-shell-generator --get` to open a fuzzy finder to search and select your `shell.nix` template.
 The template gets renamed and copied to `./shell.nix`.
 
+<p align="center">
+    <img src="https://raw.githubusercontent.com/leonwind/nix-shell-generator/media/nsg-get-example.png" alt="--get example"/>
+</p>
 
 ## Installation 
 Install by running
